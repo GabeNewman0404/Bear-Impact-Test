@@ -4,10 +4,20 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import './index.css'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const container = document.getElementById('root')
+
+const tree = (
   <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </React.StrictMode>,
+  </React.StrictMode>
 )
+
+// If the page was prerendered, the root already has markup — hydrate it.
+// Otherwise (dev mode, or first run before prerender) do a fresh render.
+if (container.hasChildNodes()) {
+  ReactDOM.hydrateRoot(container, tree)
+} else {
+  ReactDOM.createRoot(container).render(tree)
+}

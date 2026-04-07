@@ -86,12 +86,22 @@ function SiteAnimations() {
   return null
 }
 
+function PrerenderSignal() {
+  // Tells @prerenderer/rollup-plugin that the page is fully rendered and
+  // safe to snapshot. Harmless in dev / production runtime.
+  useEffect(() => {
+    document.dispatchEvent(new Event('render-event'))
+  }, [])
+  return null
+}
+
 export default function App() {
   return (
     <>
       <div className="bg-aurora" aria-hidden="true" />
       <ScrollToTop />
       <SiteAnimations />
+      <PrerenderSignal />
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
