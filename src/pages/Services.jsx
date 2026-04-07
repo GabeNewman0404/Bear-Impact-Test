@@ -84,11 +84,6 @@ export default function Services() {
       {/* 1. Hero */}
       <section className="relative min-h-[819px] flex items-center overflow-hidden py-24 bg-[#001633]">
         <div className="absolute inset-0 z-0">
-          <img
-            alt=""
-            className="w-full h-full object-cover opacity-20 grayscale"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf476VYQaG2nkIfGH0bOpQguQ0JLo-jqiweB4vonBvQGt8C1f8UrBECweJCHwtNW378x_ZNqXsIUpBKqnn20k0qrdJOb7NGJIvVRJ34oqPlKAz5ghuoUk61r2e0AMNKh_UE3PsjGMfmz1CpBABssWb145NRTPRLJeR_U0I2eJ8HjiAJtBAA3n2Xu2Z_2rqt7CKLpw2PwAY5Y8NgC_HHJq1csYnEGzJqvwNxxLLqZRIfDH52q17zJCUMifgBIeu1D5_gCJBbJK-iA"
-          />
           <div className="absolute inset-0 bg-gradient-to-t from-[#001633] via-[#001633]/80 to-transparent"></div>
         </div>
         <div className="container mx-auto px-8 relative z-10 max-w-7xl">
@@ -398,11 +393,6 @@ export default function Services() {
       {/* 7. Bottom CTA */}
       <section className="bg-[#001633] relative py-32 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img
-            alt=""
-            className="w-full h-full object-cover opacity-10"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqdz0tFCfwJr_RTJe31olMOv0m-zqdxF_JG_0f-YfTJWwECkgEpYVfjB6HBDSQ95EXY0XS2TOENmQomQHZV_H4T4xYLkAg1sKfjzC7TNOVtNEtYhDDkqgqjwOKq-BrzKuCVhkVfS656o-ecpa-f5VtELv19jWhp5YudILZ3n6soEswI_Z5bfHIZ-Mizhy0FE4XWNsLLc2BaApnfUPuaoxej1BmVgzvIQxkKg0Dmg01Psjs-1194m2KGrsZyumqVJ0NOip8TPSuD-s"
-          />
           <div className="absolute inset-0 bg-gradient-to-b from-[#001633] via-[#001633]/60 to-[#001633]"></div>
         </div>
         <div className="container mx-auto px-8 max-w-4xl relative z-10 text-center">

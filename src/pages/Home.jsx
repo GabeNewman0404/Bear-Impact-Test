@@ -4,11 +4,6 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-[921px] flex items-center overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
-          <img
-            alt=""
-            className="w-full h-full object-cover opacity-20 grayscale"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3gdEbZqVlAl8q4ru30i8qRW-yCsjN25Fjf4RboCGp5rRQG8_aWNlRfqQPoFJA73GceF71QmYEsGDkl8kVHXuPhYKPRJU1RKY4jV-Puw-9YqutAInKsvOw3zZFfmTj22XNmbqTClihESuOcMxMBhRMs3mVWUgfHeTAzsMO8t-EKQkxpSkoVEhnsZe-WUJyc14t-rWM3iRgc5IM-8RHFR5Yf0_LcwWizcihhBLAw9gpR2RNRvbLbvPGScjS9dvfmP2834VfPz2WQ0Y"
-          />
           <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-8 w-full">
@@ -33,10 +28,10 @@ export default function Home() {
               </div>
             </div>
             <div className="lg:col-span-5 relative">
-              <div className="aspect-[4/5] glass-card rounded-2xl overflow-hidden shadow-2xl relative group">
+              <div className="aspect-[4/5] glass-card rounded-2xl overflow-hidden shadow-2xl relative">
                 <img
                   alt=""
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover"
                   src="https://www.bearimpact.com/assets/founder-headshot-BQkhVtYB.png"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
@@ -209,11 +204,12 @@ export default function Home() {
             </div>
             <div className="relative">
               <div className="aspect-square bg-gradient-to-tr from-primary-container/20 to-transparent rounded-full absolute -top-20 -right-20 w-96 h-96 blur-3xl opacity-50"></div>
-              <img
-                alt=""
-                className="rounded-2xl relative z-10 ghost-border"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqjLntwXZ3l-9-8S4tEH8Fm6gq2tF6SCfXKIWXDl0b_8NGwAJpzG1xQUVYexqI6iwaNjFKfyGMOSv-GwNCs8lgAnPXqxnTcZSlGUzXgPx256Lk4uyKvdcyify-lsOAf39OAkgLvyrbo_Z6uVz7YQ-xG02WaihAaj-KAmVvOgKyg0PAe4lHSu5L6OvI99J3RQQhNPENppdficTpccf8_FRZJvKwlhzub_nfXpgl748flTQg79sAvMm4Qvn0vmX_RjC3Qyw5kIVNRsI"
-              />
+              <div
+                className="rounded-2xl relative z-10 ghost-border aspect-[4/5] w-full bg-gradient-to-br from-[#001633] via-[#0a2548] to-[#001633] overflow-hidden"
+                aria-hidden="true"
+              >
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(232,192,90,0.18),transparent_60%)]"></div>
+              </div>
               <div className="absolute -bottom-10 -left-10 z-20 glass-card p-10 rounded-2xl shadow-2xl space-y-8 min-w-[320px]">
                 {[
                   ['320%', 'Increase in qualified leads'],
@@ -279,11 +275,6 @@ export default function Home() {
                 </div>
               </div>
               <div className="bg-slate-100 relative min-h-[400px]">
-                <img
-                  alt=""
-                  className="w-full h-full object-cover opacity-30"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXvh0Jh1tqIkcSUNc6dS-_cKVRUgq6TWaDckjhizFKLsto3WgQiyO5JlHO-tMgeQeIKXSdn-0g_A0HBmJGmeRhyOfoV8RvQ1krAlbTTRafFfqRwgxEKvgrlK2OyBLJG1lpsb5y8WWSylqUhueOU5HdIWVutMOjs90DP5D1OhTiRV0w8AF_f4mc2GpjIeKYOJ9k5YlcF4pV-uaJw4JRa0dLZ-LFSRqemDiF4fz-ZfvnIKuFfrV4Ge3FE6FlHS_F9HD9e6VEwFpyXDo"
-                />
                 <div className="absolute inset-0 flex items-center justify-center p-12">
                   <div className="bg-white p-12 rounded-2xl text-center max-w-sm border border-slate-200 shadow-xl">
                     <span className="material-symbols-outlined text-5xl text-[#765a00] mb-6">

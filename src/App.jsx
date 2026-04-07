@@ -98,7 +98,9 @@ function PrerenderSignal() {
 export default function App() {
   return (
     <>
-      <div className="bg-aurora" aria-hidden="true" />
+      <div className="bg-aurora" aria-hidden="true">
+        <div className="aurora-shimmer" />
+      </div>
       <ScrollToTop />
       <SiteAnimations />
       <PrerenderSignal />

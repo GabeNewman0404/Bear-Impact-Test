@@ -100,16 +100,20 @@ img.img-fade.is-loaded {
 }
 
 /* --- Animated background (aurora) ---
-   No filter:blur (huge GPU cost). The radial-gradients are pre-feathered,
-   so a soft glow is achieved without per-frame rasterization.
-   Only `transform` animates -> single composited layer, very cheap. */
+   Darker base with a slow gold shimmer traveling right -> left.
+   Only `background-position` / `transform` animate so it stays cheap. */
 .bg-aurora {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: -1;
   overflow: hidden;
   contain: strict;
+  /* Darker base wash so the gold shimmer reads cleanly */
+  background:
+    radial-gradient(ellipse at top left, rgba(0, 31, 75, 0.55) 0%, transparent 55%),
+    radial-gradient(ellipse at bottom right, rgba(0, 10, 28, 0.6) 0%, transparent 55%),
+    linear-gradient(180deg, #02132b 0%, #010a18 100%);
 }
 .bg-aurora::before,
 .bg-aurora::after {
@@ -123,8 +127,8 @@ img.img-fade.is-loaded {
 }
 .bg-aurora::before {
   background: radial-gradient(circle at center,
-    rgba(232, 192, 90, 0.18) 0%,
-    rgba(232, 192, 90, 0.08) 35%,
+    rgba(232, 192, 90, 0.10) 0%,
+    rgba(232, 192, 90, 0.05) 35%,
     transparent 70%);
   top: -18vmax;
   left: -15vmax;
@@ -132,12 +136,29 @@ img.img-fade.is-loaded {
 }
 .bg-aurora::after {
   background: radial-gradient(circle at center,
-    rgba(0, 31, 75, 0.35) 0%,
-    rgba(0, 31, 75, 0.15) 35%,
+    rgba(0, 31, 75, 0.45) 0%,
+    rgba(0, 31, 75, 0.18) 35%,
     transparent 70%);
   bottom: -18vmax;
   right: -15vmax;
   animation: aurora-drift-b 36s ease-in-out infinite alternate;
+}
+/* Gold shimmer band sweeping right -> left */
+.aurora-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 32%,
+    rgba(232, 192, 90, 0.04) 44%,
+    rgba(232, 192, 90, 0.14) 50%,
+    rgba(232, 192, 90, 0.04) 56%,
+    transparent 68%
+  );
+  background-size: 220% 100%;
+  background-repeat: no-repeat;
+  animation: aurora-shimmer 7s linear infinite;
+  mix-blend-mode: screen;
 }
 @keyframes aurora-drift-a {
   from { transform: translate3d(0, 0, 0); }
@@ -146,6 +167,10 @@ img.img-fade.is-loaded {
 @keyframes aurora-drift-b {
   from { transform: translate3d(0, 0, 0); }
   to   { transform: translate3d(-10vmax, -10vmax, 0); }
+}
+@keyframes aurora-shimmer {
+  from { background-position: 220% 0; }
+  to   { background-position: -120% 0; }
 }
 
 /* --- Reduced motion: disable everything --- */
@@ -177,7 +202,8 @@ img.img-fade.is-loaded {
   }
   img.img-fade { opacity: 1 !important; transition: none !important; }
   .bg-aurora::before,
-  .bg-aurora::after { animation: none !important; }
+  .bg-aurora::after,
+  .aurora-shimmer { animation: none !important; }
 }
 
 @layer components {

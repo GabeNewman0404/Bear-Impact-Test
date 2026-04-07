@@ -45,12 +45,13 @@ export default function Insights() {
             {/* Featured Article */}
             <article className="md:col-span-8 group cursor-pointer">
               <div className="light-article-card rounded-xl overflow-hidden h-full flex flex-col">
-                <div className="aspect-video w-full overflow-hidden">
-                  <img
-                    alt="Growth roadmap visualization"
-                    className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-dZozGEeIMtCN_LZS-1U3NaVLJ1FDdLd2XdFIDA_VhItV2KFS8xYMUrzrTX7TFFK7IjVbFBwAlmCKRl6F7SoW6Cnlth5k8pppYaT42UPsEv14l47znrhAf91MEcr5BgLm-SM8R2pIJY9cxYyOYaFgwjCq7Yko0nD0pJHNTCoB3OVuioKB6NoseL4IC7hSPrKLSvgthwwfRxIbqh1568zjn8wqaHO7lQNyF4rtLZLu73Ptvr_V2DfbcqzLuT0qNyENVEXY_5TY3SM"
-                  />
+                <div className="aspect-video w-full overflow-hidden relative bg-gradient-to-br from-[#001633] via-[#0a2548] to-[#001633]">
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(232,192,90,0.22),transparent_60%)]"></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="material-symbols-outlined text-[#E8C05A]/60 text-7xl">
+                      trending_up
+                    </span>
+                  </div>
                 </div>
                 <div className="p-10 flex flex-col flex-grow">
                   <div className="flex items-center gap-4 mb-6">
@@ -84,12 +85,13 @@ export default function Insights() {
             {/* Side Article */}
             <article className="md:col-span-4 group cursor-pointer">
               <div className="light-article-card rounded-xl overflow-hidden h-full flex flex-col">
-                <div className="aspect-square w-full overflow-hidden">
-                  <img
-                    alt="Financial metrics chart"
-                    className="w-full h-full object-cover grayscale opacity-80 group-hover:opacity-100 transition-all duration-700"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi9_But7kirU2LN0qzNx1c3ihL9ZAafHKv2xc5pshWu7Lq3PazDNxoJJwm2INKe0ZSFRuf4YcBOjbaKyf1KhAimGrEBdiYViErFxvpj6VUeiVMQ_IDU0ic_Is7P_CtZZak6csCmKA0Ztp_f0M44IO_15Th9ajzLYwI2Jh7CRkiDtxCgACP76T4_CtQyfT15TbeXv2dr1LD-SeVK7hPJpzXQPDCu9i_5BHT4wsPnplKh9GIcXAkDnE6lOGkCv7j9evlVAmRtzB3DjM"
-                  />
+                <div className="aspect-square w-full overflow-hidden relative bg-gradient-to-br from-[#001633] via-[#0a2548] to-[#001633]">
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(232,192,90,0.22),transparent_60%)]"></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="material-symbols-outlined text-[#E8C05A]/60 text-7xl">
+                      query_stats
+                    </span>
+                  </div>
                 </div>
                 <div className="p-8">
                   <div className="mb-4 text-xs tracking-widest text-[#E8C05A] font-bold">
