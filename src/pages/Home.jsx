@@ -204,12 +204,11 @@ export default function Home() {
             </div>
             <div className="relative">
               <div className="aspect-square bg-gradient-to-tr from-primary-container/20 to-transparent rounded-full absolute -top-20 -right-20 w-96 h-96 blur-3xl opacity-50"></div>
-              <div
-                className="rounded-2xl relative z-10 ghost-border aspect-[4/5] w-full bg-gradient-to-br from-[#001633] via-[#0a2548] to-[#001633] overflow-hidden"
-                aria-hidden="true"
-              >
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(232,192,90,0.18),transparent_60%)]"></div>
-              </div>
+              <img
+                alt="Strategic chess move"
+                className="rounded-2xl relative z-10 ghost-border w-full aspect-[4/5] object-cover"
+                src="https://images.unsplash.com/photo-1560174038-da43ac74f01b?w=900&h=1125&fit=crop&q=80&auto=format"
+              />
               <div className="absolute -bottom-10 -left-10 z-20 glass-card p-10 rounded-2xl shadow-2xl space-y-8 min-w-[320px]">
                 {[
                   ['320%', 'Increase in qualified leads'],
@@ -275,6 +274,11 @@ export default function Home() {
                 </div>
               </div>
               <div className="bg-slate-100 relative min-h-[400px]">
+                <img
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover opacity-30"
+                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=900&fit=crop&q=80&auto=format"
+                />
                 <div className="absolute inset-0 flex items-center justify-center p-12">
                   <div className="bg-white p-12 rounded-2xl text-center max-w-sm border border-slate-200 shadow-xl">
                     <span className="material-symbols-outlined text-5xl text-[#765a00] mb-6">
