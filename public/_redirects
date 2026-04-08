@@ -1,0 +1,5 @@
+# Decap CMS lives at /admin and uses hash routing for its internal pages.
+# Rewrite both /admin and any /admin/* path to the admin index so Netlify
+# serves the CMS shell instead of returning a 404.
+/admin            /admin/index.html   200
+/admin/*          /admin/index.html   200
