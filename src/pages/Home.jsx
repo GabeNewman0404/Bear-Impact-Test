@@ -18,7 +18,7 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto px-8 w-full">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7">
-              <h1 className="serif-display text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight mb-8">
+              <h1 className="serif-display text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight mb-8">
                 Own Your Market. Build a{' '}
                 <span className="text-gold italic">Case Growth Engine</span> That
                 Compounds.

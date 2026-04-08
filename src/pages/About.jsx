@@ -69,7 +69,7 @@ export default function About() {
             <span className="text-primary-container tracking-[0.3em] uppercase text-xs font-bold">
               About Bear Impact
             </span>
-            <h1 className="serif-display text-6xl md:text-8xl font-bold leading-[0.95] tracking-tight mt-6">
+            <h1 className="serif-display text-4xl md:text-6xl font-bold leading-[1.05] tracking-tight mt-6">
               20+ Years Building{' '}
               <span className="text-gold italic">Market Leaders</span>.
             </h1>

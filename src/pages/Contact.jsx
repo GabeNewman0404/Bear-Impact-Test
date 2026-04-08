@@ -73,7 +73,7 @@ export default function Contact() {
           <span className="text-primary-container tracking-[0.3em] uppercase text-xs font-bold">
             Contact Bear Impact
           </span>
-          <h1 className="serif-display text-5xl md:text-7xl font-bold leading-[0.95] tracking-tight mt-6">
+          <h1 className="serif-display text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight mt-6">
             Let&apos;s Build Your{' '}
             <span className="text-gold italic">Inbound Engine</span>.
           </h1>

@@ -49,7 +49,7 @@ export default function Consulting() {
           <span className="text-primary-container tracking-[0.3em] uppercase text-xs font-bold">
             Strategic Consulting
           </span>
-          <h1 className="serif-display text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight mt-6 max-w-5xl">
+          <h1 className="serif-display text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight mt-6 max-w-5xl">
             Strategic Growth &amp;{' '}
             <span className="text-gold italic">Demand Consulting</span> for
             8-Figure Law Firms &amp; B2B Service Companies.

@@ -18,7 +18,7 @@ export default function Insights() {
       <section className="relative pt-24 pb-12 px-8 max-w-screen-2xl mx-auto overflow-hidden">
         <div className="absolute top-0 right-0 w-[50%] h-[100%] bg-gradient-to-l from-primary-container/10 to-transparent blur-[120px] -z-10"></div>
         <div className="max-w-4xl">
-          <h1 className="font-headline text-6xl md:text-8xl font-bold tracking-tight text-on-surface mb-8">
+          <h1 className="font-headline text-4xl md:text-6xl font-bold tracking-tight text-on-surface mb-8">
             Strategic Thinking for{' '}
             <span className="text-primary-container italic">Market Leaders</span>.
           </h1>

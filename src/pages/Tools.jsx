@@ -82,7 +82,7 @@ export default function Tools() {
         <div className="inline-block text-[11px] font-bold tracking-[2.5px] uppercase text-[#E8C05A] border-[1.5px] border-[#E8C05A] px-[18px] py-[6px] rounded-full mb-5">
           Free Assessment Tool
         </div>
-        <h1 className="font-['DM_Serif_Display'] font-normal leading-[1.15] max-w-[680px] mx-auto mb-3.5 text-[clamp(28px,5vw,44px)]">
+        <h1 className="font-['DM_Serif_Display'] font-normal leading-[1.15] max-w-[680px] mx-auto mb-3.5 text-[clamp(24px,4vw,36px)]">
           Law Firm Lost-Case Revenue Calculator
         </h1>
         <p className="text-[#b0afc0] text-[15px] max-w-[540px] mx-auto">

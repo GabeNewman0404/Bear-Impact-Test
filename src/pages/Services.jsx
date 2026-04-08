@@ -100,7 +100,7 @@ export default function Services() {
             <span className="inline-block text-[#eac25c] tracking-[0.3em] font-medium text-sm mb-6">
               CASE GROWTH SYSTEMS
             </span>
-            <h1 className="font-headline text-6xl md:text-8xl font-bold leading-tight text-on-surface mb-8">
+            <h1 className="font-headline text-4xl md:text-6xl font-bold leading-tight text-on-surface mb-8">
               One System. Two Phases. <br />
               <span className="text-primary-container italic">Predictable</span>{' '}
               Inbound Growth.
