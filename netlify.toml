@@ -1,0 +1,11 @@
+# Netlify build config.
+#
+# The Vite build uses @prerenderer/rollup-plugin with the puppeteer renderer
+# to emit static HTML for every route. Puppeteer needs a Chromium binary at
+# build time, but on Netlify the binary is not always downloaded automatically
+# during `npm install`. We run `puppeteer browsers install chrome` first to
+# guarantee the binary is in puppeteer's cache before `vite build` runs.
+
+[build]
+  command = "npx puppeteer browsers install chrome && npm run build"
+  publish = "dist"
