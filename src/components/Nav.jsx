@@ -36,6 +36,9 @@ export default function Nav() {
           <NavLink to="/insights" className={navClass}>
             Insights
           </NavLink>
+          <NavLink to="/contact" className={navClass}>
+            Contact
+          </NavLink>
         </div>
         <button className="bg-[#e8c05a] text-[#3e2e00] px-6 py-2.5 rounded-lg font-['Inter'] font-semibold text-sm scale-95 active:opacity-80 transition-all">
           Book Your Blueprint Session
