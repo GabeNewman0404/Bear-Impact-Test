@@ -1,4 +1,9 @@
+import { Link } from 'react-router-dom'
+import { posts, formatDate } from '../lib/posts.js'
+
 export default function Insights() {
+  const [featured, ...rest] = posts
+
   return (
     <main className="min-h-screen">
       {/* Hero Section (Dark) */}
@@ -18,157 +23,155 @@ export default function Insights() {
 
       {/* Content Area (White Background) */}
       <div className="bg-white">
-        {/* Filter Tags */}
-        <section className="px-8 py-8 max-w-screen-2xl mx-auto">
-          <div className="flex flex-wrap gap-4">
-            <button className="px-6 py-2 rounded-full border border-primary-container/20 bg-[#001633] text-primary-container text-sm font-medium transition-all">
-              All Insights
-            </button>
-            {[
-              'B2B Growth Strategy',
-              'Reducing Ad Dependence',
-              'Market Authority',
-            ].map((tag) => (
-              <button
-                key={tag}
-                className="px-6 py-2 rounded-full border border-slate-200 bg-white text-slate-600 text-sm font-medium hover:text-[#001633] hover:border-slate-300 transition-all"
-              >
-                {tag}
-              </button>
-            ))}
-          </div>
-        </section>
-
         {/* Blog Grid */}
-        <section className="px-8 pb-32 max-w-screen-2xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-            {/* Featured Article */}
-            <article className="md:col-span-8 group cursor-pointer">
-              <div className="light-article-card rounded-xl overflow-hidden h-full flex flex-col">
-                <div className="aspect-video w-full overflow-hidden relative bg-gradient-to-br from-[#001633] via-[#0a2548] to-[#001633]">
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(232,192,90,0.22),transparent_60%)]"></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="material-symbols-outlined text-[#E8C05A]/60 text-7xl">
-                      trending_up
-                    </span>
+        <section className="px-8 py-20 max-w-screen-2xl mx-auto">
+          {posts.length === 0 ? (
+            <div className="text-center py-32">
+              <p className="text-slate-500 text-lg">
+                No blog posts yet. Check back soon — or sign in at{' '}
+                <code className="bg-slate-100 px-2 py-1 rounded text-sm">/admin</code>{' '}
+                to publish the first one.
+              </p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+              {/* Featured (most recent) post */}
+              <article className="md:col-span-8 group">
+                <Link to={`/insights/${featured.slug}`} className="block">
+                  <div className="light-article-card rounded-xl overflow-hidden h-full flex flex-col">
+                    <div className="aspect-video w-full overflow-hidden relative bg-gradient-to-br from-[#001633] via-[#0a2548] to-[#001633]">
+                      {featured.featured_image ? (
+                        <img
+                          src={featured.featured_image}
+                          alt={featured.title}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                      ) : (
+                        <>
+                          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(232,192,90,0.22),transparent_60%)]" />
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <span className="material-symbols-outlined text-[#E8C05A]/60 text-7xl">
+                              trending_up
+                            </span>
+                          </div>
+                        </>
+                      )}
+                    </div>
+                    <div className="p-10 flex flex-col flex-grow">
+                      <div className="flex items-center gap-4 mb-6">
+                        {featured.tags && featured.tags[0] && (
+                          <>
+                            <span className="text-xs uppercase tracking-[0.2em] text-[#E8C05A] font-bold">
+                              {featured.tags[0]}
+                            </span>
+                            <span className="h-px w-8 bg-slate-200"></span>
+                          </>
+                        )}
+                        {featured.date && (
+                          <time
+                            dateTime={featured.date}
+                            className="text-xs text-slate-500 font-medium tracking-wider uppercase"
+                          >
+                            {formatDate(featured.date)}
+                          </time>
+                        )}
+                      </div>
+                      <h2 className="font-headline text-4xl md:text-5xl font-bold mb-6 text-[#001633] group-hover:text-[#E8C05A] transition-colors">
+                        {featured.title}
+                      </h2>
+                      <p className="text-slate-600 text-lg leading-relaxed mb-8 flex-grow">
+                        {featured.summary}
+                      </p>
+                      <div className="flex items-center gap-2 text-[#001633] font-bold group-hover:text-[#E8C05A] transition-colors">
+                        <span>Read Full Article</span>
+                        <span className="material-symbols-outlined text-sm">
+                          arrow_forward
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className="p-10 flex flex-col flex-grow">
-                  <div className="flex items-center gap-4 mb-6">
-                    <span className="text-xs uppercase tracking-[0.2em] text-[#E8C05A] font-bold">
-                      Growth Strategy
-                    </span>
-                    <span className="h-px w-8 bg-slate-200"></span>
-                    <span className="text-xs text-slate-500 font-medium tracking-wider">
-                      12 MIN READ
-                    </span>
-                  </div>
-                  <h2 className="font-headline text-4xl md:text-5xl font-bold mb-6 text-[#001633] group-hover:text-[#E8C05A] transition-colors">
-                    The 12-Month Roadmap: What to Expect from a High-End Growth
-                    System Investment
-                  </h2>
-                  <p className="text-slate-600 text-lg leading-relaxed mb-8 flex-grow">
-                    Enterprise growth isn&apos;t built in a week. We break down
-                    the specific milestones, infrastructure requirements, and
-                    compound returns expected over a year-long partnership.
-                  </p>
-                  <div className="flex items-center gap-2 text-[#001633] font-bold group-hover:text-[#E8C05A] transition-colors">
-                    <span>Read Full Strategy</span>
-                    <span className="material-symbols-outlined text-sm">
-                      arrow_forward
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            {/* Side Article */}
-            <article className="md:col-span-4 group cursor-pointer">
-              <div className="light-article-card rounded-xl overflow-hidden h-full flex flex-col">
-                <div className="aspect-square w-full overflow-hidden relative bg-gradient-to-br from-[#001633] via-[#0a2548] to-[#001633]">
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(232,192,90,0.22),transparent_60%)]"></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="material-symbols-outlined text-[#E8C05A]/60 text-7xl">
-                      query_stats
-                    </span>
-                  </div>
-                </div>
-                <div className="p-8">
-                  <div className="mb-4 text-xs tracking-widest text-[#E8C05A] font-bold">
-                    ORGANIC ROI
-                  </div>
-                  <h3 className="font-headline text-2xl font-bold mb-4 text-[#001633] group-hover:text-[#E8C05A] transition-colors">
-                    Why $10M+ Companies Are Shifting Budget from PPC to Organic
-                    Growth Systems
-                  </h3>
-                  <div className="text-slate-500 text-sm flex items-center gap-2">
-                    <span className="material-symbols-outlined text-xs">
-                      calendar_today
-                    </span>
-                    May 14, 2026
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            {/* Bottom row */}
-            {[
-              {
-                icon: 'article',
-                tag: 'AUTHORITY',
-                title:
-                  'Building Topical Authority: The Content Strategy That Actually Works',
-                body: 'Move beyond keyword stuffing. Learn how to map high-intent clusters that establish dominance in complex B2B niches.',
-                kind: 'Insight Paper',
-              },
-              {
-                icon: 'settings_suggest',
-                tag: 'TECHNICAL',
-                title:
-                  'Technical Infrastructure for Enterprise: What Your Dev Team Needs to Know',
-                body: 'The tech stack requirements for scaling to millions of monthly visitors without compromising security or speed.',
-                kind: 'Technical Guide',
-              },
-              {
-                icon: 'trending_up',
-                tag: 'VALUE CREATION',
-                title:
-                  'The Compounding Effect: How Organic Growth Builds Enterprise Value',
-                body: 'Why organic systems are treated as balance sheet assets rather than simple marketing expenses in M&A valuations.',
-                kind: 'Market Analysis',
-              },
-            ].map((card) => (
-              <article
-                key={card.title}
-                className="md:col-span-4 group cursor-pointer"
-              >
-                <div className="light-article-card rounded-xl p-8 flex flex-col h-full">
-                  <div className="mb-8">
-                    <span className="material-symbols-outlined text-4xl text-[#001633]">
-                      {card.icon}
-                    </span>
-                  </div>
-                  <div className="mb-4 text-xs tracking-widest text-[#E8C05A] font-bold">
-                    {card.tag}
-                  </div>
-                  <h3 className="font-headline text-2xl font-bold mb-6 text-[#001633] group-hover:text-[#E8C05A] transition-colors">
-                    {card.title}
-                  </h3>
-                  <p className="text-slate-600 text-sm mb-8 flex-grow">
-                    {card.body}
-                  </p>
-                  <div className="pt-6 border-t border-slate-100 flex justify-between items-center">
-                    <span className="text-xs text-slate-400 font-bold uppercase tracking-wider">
-                      {card.kind}
-                    </span>
-                    <span className="material-symbols-outlined text-[#001633]">
-                      add
-                    </span>
-                  </div>
-                </div>
+                </Link>
               </article>
-            ))}
-          </div>
+
+              {/* Side column — next post (if any) */}
+              <aside className="md:col-span-4 grid grid-cols-1 gap-8">
+                {rest.slice(0, 2).map((post) => (
+                  <article key={post.slug} className="group">
+                    <Link to={`/insights/${post.slug}`} className="block">
+                      <div className="light-article-card rounded-xl overflow-hidden h-full flex flex-col">
+                        <div className="aspect-square w-full overflow-hidden relative bg-gradient-to-br from-[#001633] via-[#0a2548] to-[#001633]">
+                          {post.featured_image ? (
+                            <img
+                              src={post.featured_image}
+                              alt={post.title}
+                              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
+                          ) : (
+                            <>
+                              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(232,192,90,0.22),transparent_60%)]" />
+                              <div className="absolute inset-0 flex items-center justify-center">
+                                <span className="material-symbols-outlined text-[#E8C05A]/60 text-6xl">
+                                  query_stats
+                                </span>
+                              </div>
+                            </>
+                          )}
+                        </div>
+                        <div className="p-8">
+                          {post.tags && post.tags[0] && (
+                            <div className="mb-4 text-xs tracking-widest text-[#E8C05A] font-bold uppercase">
+                              {post.tags[0]}
+                            </div>
+                          )}
+                          <h3 className="font-headline text-xl font-bold mb-4 text-[#001633] group-hover:text-[#E8C05A] transition-colors">
+                            {post.title}
+                          </h3>
+                          {post.date && (
+                            <div className="text-slate-500 text-sm flex items-center gap-2">
+                              <span className="material-symbols-outlined text-xs">
+                                calendar_today
+                              </span>
+                              {formatDate(post.date)}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </Link>
+                  </article>
+                ))}
+              </aside>
+
+              {/* Remaining posts as a 3-up grid */}
+              {rest.length > 2 &&
+                rest.slice(2).map((post) => (
+                  <article key={post.slug} className="md:col-span-4 group">
+                    <Link to={`/insights/${post.slug}`} className="block h-full">
+                      <div className="light-article-card rounded-xl p-8 flex flex-col h-full">
+                        <div className="mb-6 text-xs tracking-widest text-[#E8C05A] font-bold uppercase">
+                          {post.tags && post.tags[0] ? post.tags[0] : 'INSIGHT'}
+                        </div>
+                        <h3 className="font-headline text-2xl font-bold mb-6 text-[#001633] group-hover:text-[#E8C05A] transition-colors">
+                          {post.title}
+                        </h3>
+                        <p className="text-slate-600 text-sm mb-8 flex-grow">
+                          {post.summary}
+                        </p>
+                        <div className="pt-6 border-t border-slate-100 flex justify-between items-center">
+                          {post.date && (
+                            <span className="text-xs text-slate-400 font-bold uppercase tracking-wider">
+                              {formatDate(post.date)}
+                            </span>
+                          )}
+                          <span className="material-symbols-outlined text-[#001633] group-hover:text-[#E8C05A] transition-colors">
+                            arrow_forward
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  </article>
+                ))}
+            </div>
+          )}
         </section>
       </div>
 

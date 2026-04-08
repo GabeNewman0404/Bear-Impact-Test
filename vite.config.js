@@ -1,6 +1,22 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import prerender from '@prerenderer/rollup-plugin'
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+// Read every markdown file in /content/blog at config-load time so each
+// post is included in the prerender route list. The prerenderer will then
+// emit a static HTML file for /insights/<slug> matching every post.
+const blogDir = path.resolve(__dirname, 'content/blog')
+const blogSlugs = fs.existsSync(blogDir)
+  ? fs
+      .readdirSync(blogDir)
+      .filter((f) => f.endsWith('.md'))
+      .map((f) => f.replace(/\.md$/, ''))
+  : []
 
 export default defineConfig({
   plugins: [
@@ -13,6 +29,7 @@ export default defineConfig({
         '/about',
         '/insights',
         '/tools',
+        ...blogSlugs.map((slug) => `/insights/${slug}`),
       ],
       renderer: '@prerenderer/renderer-puppeteer',
       rendererOptions: {
@@ -23,8 +40,6 @@ export default defineConfig({
         headless: true,
       },
       postProcess(renderedRoute) {
-        // Strip the dev/prod hash from absolute asset URLs back to relative
-        // and ensure each route's <title> stays untouched.
         renderedRoute.html = renderedRoute.html.replace(
           /http:\/\/localhost:\d+\//g,
           '/',

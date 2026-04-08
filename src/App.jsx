@@ -7,6 +7,7 @@ import Consulting from './pages/Consulting.jsx'
 import Services from './pages/Services.jsx'
 import About from './pages/About.jsx'
 import Insights from './pages/Insights.jsx'
+import BlogPost from './pages/BlogPost.jsx'
 import Tools from './pages/Tools.jsx'
 
 function ScrollToTop() {
@@ -111,6 +112,7 @@ export default function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />
         <Route path="/insights" element={<Insights />} />
+        <Route path="/insights/:slug" element={<BlogPost />} />
         <Route path="/tools" element={<Tools />} />
       </Routes>
       <Footer />
