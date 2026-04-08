@@ -10,6 +10,33 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
+    <!--
+      Netlify Forms shadow form. Netlify's form-detection parser only reliably
+      scans static HTML in index.html, not React-rendered output. This hidden
+      form registers the "contact" form (with the same field names as the React
+      form in src/pages/Contact.jsx) so AJAX POSTs from the live page succeed.
+      Do not remove — keep field names in sync with the React form.
+    -->
+    <form
+      name="contact"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      hidden
+    >
+      <input type="text" name="fullName" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="firmName" />
+      <select name="attorneyCount">
+        <option value="1-5"></option>
+        <option value="6-15"></option>
+        <option value="16-50"></option>
+        <option value="51-150"></option>
+        <option value="150+"></option>
+      </select>
+      <textarea name="message"></textarea>
+      <input name="bot-field" />
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
