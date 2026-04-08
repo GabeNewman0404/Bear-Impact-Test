@@ -50,6 +50,11 @@ export default function Footer() {
                 Insights
               </Link>
             </li>
+            <li>
+              <Link to="/contact" className="text-slate-400 hover:text-white transition-all">
+                Contact
+              </Link>
+            </li>
           </ul>
         </div>
         <div>

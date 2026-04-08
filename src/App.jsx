@@ -9,6 +9,7 @@ import About from './pages/About.jsx'
 import Insights from './pages/Insights.jsx'
 import BlogPost from './pages/BlogPost.jsx'
 import Tools from './pages/Tools.jsx'
+import Contact from './pages/Contact.jsx'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -114,6 +115,7 @@ export default function App() {
         <Route path="/insights" element={<Insights />} />
         <Route path="/insights/:slug" element={<BlogPost />} />
         <Route path="/tools" element={<Tools />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </>

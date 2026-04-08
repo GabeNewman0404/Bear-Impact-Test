@@ -29,6 +29,7 @@ export default defineConfig({
         '/about',
         '/insights',
         '/tools',
+        '/contact',
         ...blogSlugs.map((slug) => `/insights/${slug}`),
       ],
       renderer: '@prerenderer/renderer-puppeteer',
