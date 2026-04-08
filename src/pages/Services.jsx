@@ -1,3 +1,5 @@
+import { usePageMeta } from '../lib/usePageMeta.js'
+
 const fill1 = { fontVariationSettings: '"FILL" 1' }
 
 const tiers = [
@@ -79,6 +81,13 @@ const tiers = [
 ]
 
 export default function Services() {
+  usePageMeta({
+    title: 'SEO & Inbound Marketing Services for Law Firms | Bear Impact',
+    description:
+      'Done-for-you SEO and inbound marketing services built for law firms. Two-phase Case Growth System: foundation, then compounding organic case flow.',
+    path: '/services',
+  })
+
   return (
     <main className="bg-[#001633] text-on-surface">
       {/* 1. Hero */}

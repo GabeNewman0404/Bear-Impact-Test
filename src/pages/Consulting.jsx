@@ -1,3 +1,5 @@
+import { usePageMeta } from '../lib/usePageMeta.js'
+
 const pillars = [
   {
     icon: 'insights',
@@ -31,6 +33,13 @@ const wrongClient = [
 ]
 
 export default function Consulting() {
+  usePageMeta({
+    title: 'Case Growth Blueprint Session for PI Firms | Bear Impact',
+    description:
+      'Book a Case Growth Blueprint session for your personal injury firm. One engagement, one operating system, one sovereign market position. No retainers.',
+    path: '/consulting',
+  })
+
   return (
     <main>
       {/* Hero */}

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { usePageMeta } from '../lib/usePageMeta.js'
 
 // Netlify Forms notes:
 // - The form is detected at deploy time from the prerendered HTML for /contact
@@ -19,6 +20,13 @@ function encode(data) {
 }
 
 export default function Contact() {
+  usePageMeta({
+    title: 'Contact Bear Impact — Talk to a Legal Growth Strategist',
+    description:
+      'Tell us about your firm and what you are trying to solve. We review every inquiry personally and respond within two business days.',
+    path: '/contact',
+  })
+
   const [status, setStatus] = useState('idle') // idle | submitting | success | error
   const [errorMessage, setErrorMessage] = useState('')
 

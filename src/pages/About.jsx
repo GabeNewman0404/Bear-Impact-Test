@@ -1,3 +1,5 @@
+import { usePageMeta } from '../lib/usePageMeta.js'
+
 const milestones = [
   {
     year: '2004',
@@ -50,6 +52,13 @@ const beliefs = [
 ]
 
 export default function About() {
+  usePageMeta({
+    title: 'About Bear Impact — Legal Marketing Agency for Elite Firms',
+    description:
+      'Bear Impact is a legal marketing agency built on 20+ years of in-house growth strategy for high-stakes law firms and B2B service companies.',
+    path: '/about',
+  })
+
   return (
     <main>
       {/* Hero */}

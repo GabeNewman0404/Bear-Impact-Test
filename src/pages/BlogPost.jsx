@@ -2,6 +2,16 @@ import { Link, useParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { getPost, formatDate } from '../lib/posts.js'
+import { usePageMeta } from '../lib/usePageMeta.js'
+
+// Trim a string to a target length without cutting mid-word, then append "…".
+function truncate(text, max = 155) {
+  if (!text) return ''
+  if (text.length <= max) return text
+  const sliced = text.slice(0, max)
+  const lastSpace = sliced.lastIndexOf(' ')
+  return (lastSpace > 0 ? sliced.slice(0, lastSpace) : sliced).trim() + '…'
+}
 
 const mdComponents = {
   h1: (props) => <h1 className="font-headline text-4xl md:text-5xl font-bold text-[#001633] mt-12 mb-6" {...props} />,
@@ -31,6 +41,25 @@ const mdComponents = {
 export default function BlogPost() {
   const { slug } = useParams()
   const post = getPost(slug)
+
+  // Per-post metadata. For not-found, we still set a sensible title so the
+  // 404 view doesn't inherit whatever the previous page set.
+  usePageMeta(
+    post
+      ? {
+          title: `${post.title} | Bear Impact Insights`,
+          description: truncate(post.summary || post.title, 155),
+          path: `/insights/${slug}`,
+          image: post.featured_image || '/bear-impact-logo.jpg',
+          type: 'article',
+        }
+      : {
+          title: 'Post Not Found | Bear Impact Insights',
+          description:
+            'The blog post you are looking for could not be found. Browse all Bear Impact insights on legal marketing and case growth strategy.',
+          path: `/insights/${slug || ''}`,
+        },
+  )
 
   if (!post) {
     return (

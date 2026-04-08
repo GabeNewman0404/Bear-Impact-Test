@@ -1,7 +1,15 @@
 import { Link } from 'react-router-dom'
 import { posts, formatDate } from '../lib/posts.js'
+import { usePageMeta } from '../lib/usePageMeta.js'
 
 export default function Insights() {
+  usePageMeta({
+    title: 'Legal Marketing Insights & Blog | Bear Impact',
+    description:
+      'Deep-dive articles on legal marketing, SEO for law firms, reducing ad dependence, and building sustainable case growth through inbound authority.',
+    path: '/insights',
+  })
+
   const [featured, ...rest] = posts
 
   return (

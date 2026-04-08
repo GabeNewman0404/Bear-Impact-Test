@@ -1,4 +1,13 @@
+import { usePageMeta } from '../lib/usePageMeta.js'
+
 export default function Home() {
+  usePageMeta({
+    title: 'Case Growth Systems for Personal Injury Law Firms | Bear Impact',
+    description:
+      'Bear Impact builds case growth systems for personal injury law firms — predictable, compounding inbound that replaces ad spend with sovereign authority.',
+    path: '/',
+  })
+
   return (
     <main>
       {/* Hero Section */}

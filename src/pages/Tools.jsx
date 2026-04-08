@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { usePageMeta } from '../lib/usePageMeta.js'
 
 const fmt = (n) => {
   if (Math.abs(n) >= 1000) return '$' + Math.round(n).toLocaleString('en-US')
@@ -12,6 +13,13 @@ const fmtShort = (n) => {
 const fmtNum = (n) => Math.round(n).toLocaleString('en-US')
 
 export default function Tools() {
+  usePageMeta({
+    title: 'Legal Marketing Tools & Resources | Bear Impact',
+    description:
+      'Free tools and resources for law firm marketing, including the Lost-Case Revenue Calculator that quantifies the cases your organic channel is missing.',
+    path: '/tools',
+  })
+
   const [sessions, setSessions] = useState('')
   const [intent, setIntent] = useState('30')
   const [crSite, setCrSite] = useState('3')
